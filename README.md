@@ -11,6 +11,7 @@ http://10.5.5.9/bacpac/SH?t=YOURPASSWORD&p=%01
 
 At line 69 in RecordVideo.java you must replace YOURPASSWORD with your GoPro WiFi password.
 
+## STOP Activity
 
 ```
 http://10.5.5.9/bacpac/SH?t=YOURPASSWORD&p=%00

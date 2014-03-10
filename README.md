@@ -17,3 +17,8 @@ http://10.5.5.9/bacpac/SH?t=YOURPASSWORD&p=%00
 ```
 
 At line 71 in StopVideo.java you must replace YOURPASSWORD with your GoPro WiFi password.
+
+
+## Outside Resources
+
+The majority of the heavy lifting in this application is performed with Vitamio. If you intend to build the application yourself you will need to download the Vitamio Android SDK and use it as a library for your project. Form more information visit http://www.vitamio.org/en/.

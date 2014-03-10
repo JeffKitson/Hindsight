@@ -12,6 +12,7 @@
     
         <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="false"
@@ -27,7 +28,16 @@
             android:label="Media/VideoView" >
         </activity>
         <activity
-            android:name="com.shadydev.hindsight.BattleMenu" />
+            android:name=".RecordVideo"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:label="Media/VideoView" >
+        </activity>
+        <activity
+            android:name=".StopVideo"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:label="Media/VideoView" >
+        </activity>
+        
         <activity android:name="io.vov.vitamio.activity.InitActivity" 
     android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
     android:launchMode="singleTop"

@@ -15,6 +15,11 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import io.vov.vitamio.LibsChecker;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -49,7 +54,9 @@ public class HudViewer extends ListActivity {
 	protected List<Map<String, Object>> getData() {
 		List<Map<String, Object>> myData = new ArrayList<Map<String, Object>>();
 		//addItem(myData, "MediaPlayer", new Intent(this, MediaPlayerDemo.class));
-		addItem(myData, "GoPro WiFi", new Intent(this, VideoViewExtended.class));
+		addItem(myData, "GoPro Preview", new Intent(this, VideoViewExtended.class));
+		addItem(myData, "GoPro REC", new Intent(this, RecordVideo.class));
+		addItem(myData, "GoPro STOP", new Intent(this, StopVideo.class));
 
 		return myData;
 	}
@@ -68,8 +75,10 @@ public class HudViewer extends ListActivity {
 		Intent intent = (Intent) map.get("intent");
 		startActivity(intent);
 	}
-
+	
+	
 }
+
 /* extends Activity {
 
 	@Override

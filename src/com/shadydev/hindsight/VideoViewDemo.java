@@ -17,6 +17,11 @@
 package com.shadydev.hindsight;
 
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -42,10 +47,12 @@ public class VideoViewDemo extends Activity {
 			return;
 		setContentView(R.layout.videoview);
 		mVideoView = (VideoView) findViewById(R.id.surface_view);
+		
+		
 
-		if (path == "") {
+		if (path == "" || !testConn()) {
 			// Tell the user to provide a media file URL/path.
-			Toast.makeText(VideoViewDemo.this, "Please edit VideoViewDemo Activity, and set path" + " variable to your media file URL/path", Toast.LENGTH_LONG).show();
+			Toast.makeText(VideoViewDemo.this, "There seems to be an issue connecting.", Toast.LENGTH_LONG).show();
 			return;
 		} else {
 			/*
@@ -65,5 +72,29 @@ public class VideoViewDemo extends Activity {
 			});
 		}
 
+	}
+	
+	public boolean testConn(){
+		try {
+
+            URL url = new URL("http://10.5.5.9:8080/live/amba.m3u8");
+
+    HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
+    urlc.setRequestProperty("User-Agent", "Android Application:1");
+    urlc.setRequestProperty("Connection", "close");
+    urlc.setConnectTimeout(1000 * 30); // mTimeout is in seconds
+            urlc.connect();
+    if (urlc.getResponseCode() == 200) {
+        //Main.Log("getResponseCode == 200");
+            return new Boolean(true);
+    }
+    } catch (MalformedURLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+} catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+    }
+		return false;
 	}
 }

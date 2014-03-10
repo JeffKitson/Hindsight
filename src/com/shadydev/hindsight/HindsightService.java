@@ -27,7 +27,7 @@ import android.widget.VideoView;
 
 public class HindsightService extends Service {
 
-    private static final String LIVE_CARD_ID = "compass";
+    private static final String LIVE_CARD_ID = "hindsight";
     private TextView latituteField;
     private TextView longitudeField;
     //private Camera mCamera;
@@ -122,11 +122,11 @@ public class HindsightService extends Service {
 	            mLiveCard.setDirectRenderingEnabled(true).getSurfaceHolder();//.addCallback(mRenderer);
 
 	            // Display the options menu when the live card is tapped.
-	            //Intent menuIntent = new Intent(this, HudMenu.class);
-	           // menuIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-	           // mLiveCard.setAction(PendingIntent.getActivity(this, 0, menuIntent, 0));
+	           Intent menuIntent = new Intent(this, HudViewer.class);
+	           menuIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+	           mLiveCard.setAction(PendingIntent.getActivity(this, 0, menuIntent, 0));
 
-	           // mLiveCard.publish(PublishMode.REVEAL);
+	           mLiveCard.publish(PublishMode.REVEAL);
 	        }
 
 	        return START_STICKY;
